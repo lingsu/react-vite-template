@@ -38,4 +38,4 @@ const useStoreApi = () => {
     [store]
   );
 };
-export { useStoreApi,useStore };
+export { useStoreApi, useStore };

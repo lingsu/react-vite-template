@@ -1,0 +1,42 @@
+kind: pipeline
+name: default
+
+steps:
+  - name: restore-cache
+    pull: if-not-exists
+    image: drillster/drone-volume-cache
+    volumes:
+      - name: cache
+        path: /cache
+    settings:
+      restore: true
+      mount:
+        - .pnpm-store
+
+  - name: build
+    pull: if-not-exists
+    image: node:18-slim
+    commands:
+      # - npm config set strict-ssl false
+      - npm config set registry https://registry.npmmirror.com
+      # - corepack enable
+      - npm install -g pnpm
+      - pnpm store path
+      - pnpm install
+      - pnpm build
+
+  - name: rebuild-cache
+    pull: if-not-exists
+    image: drillster/drone-volume-cache
+    volumes:
+      - name: cache
+        path: /cache
+    settings:
+      rebuild: true
+      mount:
+        - .pnpm-store
+
+volumes:
+  - name: cache
+    host:
+      path: /tmp/cache
