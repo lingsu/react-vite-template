@@ -5,7 +5,9 @@ import { ConfigProvider } from "antd";
 import zhCN from "antd/locale/zh_CN";
 import routes from "./routes";
 
-const router = createBrowserRouter(routes);
+const router = createBrowserRouter(routes, {
+  basename: import.meta.env.VITE_BASENAME,
+});
 
 export default () => {
   return (

@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 import { md5 } from 'js-md5';
 import { Token } from "../andy/typing";
 import { useStoreApi } from "../andy/hooks/useStore";
-import { usePostBladeRequest } from "../andy/hooks/useBladeRequest";
+import { usePostRequest } from "../andy/hooks/useRequest";
 
 type LoginType = "phone" | "account";
 
@@ -36,7 +36,7 @@ export default () => {
   const store = useStoreApi();
   const { login } = store.getState();
   
-  const postRequest = usePostBladeRequest()
+  const postRequest = usePostRequest()
 
 
   const handleFinish = async ({

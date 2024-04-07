@@ -60,7 +60,6 @@ export type AndyStore = {
   user: User | null;
   api: Record<string, string>;
   token: Token | null;
-  aiToken: string;
   isLogin: boolean;
   loginTime: Dayjs | null;
 };

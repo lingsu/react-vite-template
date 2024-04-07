@@ -39,7 +39,7 @@ const useBearStore = create(
         try {
           let res = await request<User>("/blade-user/detail?id=" + token?.user_id, {
             method: "GET",
-            apiName: "blade",
+            apiName: "default",
           });
           if (user?.updateTime !== res.updateTime) {
             setUser(res);
@@ -51,7 +51,7 @@ const useBearStore = create(
 
       request: <T>(url: string, option?: AndyRequestOption) => {
         const { apiName, method, ...rest } = {
-          apiName: "blade",
+          apiName: "default",
           method: "GET",
           ...option,
         };
@@ -77,7 +77,7 @@ const useBearStore = create(
       download: (url: string) => {
         const { token, api } = get();
         window.open(
-          `${api['blade']}${url}${url.includes("?") ? "&" : "?"}Blade-Auth=${token?.access_token}`
+          `${api['default']}${url}${url.includes("?") ? "&" : "?"}Blade-Auth=${token?.access_token}`
         );
       },
     }),

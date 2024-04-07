@@ -14,6 +14,8 @@ import { Dropdown } from "antd";
 import { useEffect } from "react";
 import { useShallow } from "zustand/react/shallow";
 import { useStore, useStoreApi } from "../andy/hooks/useStore";
+import avatar from "../assets/avatar.png";
+
 // import ErrorBoundary from "../components/ErrorBoundary";
 
 // const Notification = () => {
@@ -51,7 +53,7 @@ import { useStore, useStoreApi } from "../andy/hooks/useStore";
 // }
 
 const routeDic: Record<string, ProLayoutProps["route"]> = {
-  '超级管理员': {
+  超级管理员: {
     children: [
       {
         icon: <HomeOutlined />,
@@ -103,7 +105,7 @@ const routeDic: Record<string, ProLayoutProps["route"]> = {
       // },
     ],
   },
-  '教师': {
+  教师: {
     children: [
       {
         icon: <HomeOutlined />,
@@ -241,11 +243,11 @@ export default () => {
         // },
       }}
       title={import.meta.env.VITE_APP_TITLE}
-      logo="/zltech_logo.png"
+      logo="/vite.svg"
       // avatarProps={{
       //   src:
       //     user.avatar ||
-      //     "https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/BiazfanxmamNRoxxVxka.png",
+      //     "https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/avatar.png",
       //   size: "small",
       //   title: user.nick_name,
       //   render: (_, dom) => {
@@ -257,9 +259,7 @@ export default () => {
       //   return [<Notification key="bell" />];
       // }}
       avatarProps={{
-        src:
-          user.avatar ||
-          "/assets/BiazfanxmamNRoxxVxka.png",
+        src: user.avatar || avatar,
         size: "small",
         title: user?.realName,
         render: (_, dom) => {

@@ -1,26 +1,16 @@
 import { useCallback } from "react";
 import { useStoreApi } from "./useStore";
 import _ from "lodash";
-import request, { RequestOption } from "../utils/request";
+import { RequestOption } from "../utils/request";
 
-const replaceUrl = (url: string, kv: Record<string, any>) => {
-  _.keysIn(kv).forEach((key) => {
-    if (kv[key]) {
-      url = url.replace(`{${key}}`, kv[key]);
-    }
-  });
-  return url;
-};
 const useRequest = (method: string) => {
   const store = useStoreApi();
   // const { showBoundary } = useErrorBoundary();
 
   const post = useCallback(<T>(url: string, init?: RequestOption) => {
-    const { aiToken, api, user } = store.getState();
-    return request<T>(replaceUrl(url, { user_id: user?.id }), {
+    return store.getState().request<T>(url, {
       method: method,
-      token: aiToken,
-      baseUrl: api['default'],
+      apiName: "default",
       ...init,
     });
     // .catch((error:any) => {
@@ -29,7 +19,7 @@ const useRequest = (method: string) => {
     // });
   }, []);
   return post;
-}
+};
 const useGetRequest = () => {
   return useRequest("GET");
 };
@@ -42,4 +32,4 @@ const useDeleteRequest = () => {
 const usePatchRequest = () => {
   return useRequest("PATCH");
 };
-export { useGetRequest,usePostRequest,useDeleteRequest,usePatchRequest };
+export { useGetRequest, usePostRequest, useDeleteRequest, usePatchRequest };
