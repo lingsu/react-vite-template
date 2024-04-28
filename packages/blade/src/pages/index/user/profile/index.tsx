@@ -14,6 +14,7 @@ import { useStore, useStoreApi } from "../../../../andy/hooks/useStore";
 // import md5 from "md5";
 import avatar from "../../../../assets/avatar.png";
 import { BladeAttach } from "../../../../andy/typing";
+import { log } from "@andy/utils";
 
 const { Item } = Menu;
 
@@ -29,7 +30,7 @@ const passwordStrength = {
 //   }
 //   return tel;
 // }
-
+log('andy')
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
     setTimeout(() => {

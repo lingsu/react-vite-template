@@ -1,44 +1,16 @@
 {
-  "name": "react-vite-template",
+  "name": "root",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@ant-design/icons": "^5.3.6",
-    "@ant-design/pro-components": "^2.7.0",
-    "antd": "^5.16.0",
-    "dayjs": "^1.11.10",
-    "js-md5": "^0.8.3",
-    "lodash": "^4.17.21",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-error-boundary": "^4.0.13",
-    "react-router-dom": "^6.22.3",
-    "swr": "^2.2.5",
-    "zustand": "^4.5.2"
-  },
+		"dev": "run-p dev:webapp dev:server",
+		"dev:blade": "pnpm --filter ./packages/blade dev",
+		"build": "run-p build:server build:webapp",
+		"build:blade": "pnpm --filter ./packages/blade build",
+		"build:deps": "pnpm --filter ./packages/utils build"
+	},
   "devDependencies": {
-    "@types/lodash": "^4.17.0",
-    "@types/node": "^20.12.7",
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
-    "@typescript-eslint/eslint-plugin": "^7.2.0",
-    "@typescript-eslint/parser": "^7.2.0",
-    "@vitejs/plugin-react-swc": "^3.5.0",
-    "autoprefixer": "^10.4.19",
-    "cssnano": "^6.1.2",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
+    "lerna": "^8.1.2",
     "typescript": "^5.2.2",
-    "vite": "^5.2.0"
+    "typescript-node": "^0.1.3"
   }
 }

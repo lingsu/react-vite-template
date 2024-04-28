@@ -1,24 +1,37 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
+# dependencies
 node_modules
-dist
-dist-ssr
-*.local
+package-lock.json
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# IDE
+/.idea
+/.awcache
+/.cache
+/.vscode
+
+# misc
+npm-debug.log
+yarn-error.log
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+*.swp
+*.tar
+*.tar.gz
+*.zip
+*.p8
+
+# tests
+coverage
+coverage-e2e
+logs
+.nyc_output
+
+# environment
+.env
+.env.*
+docker.env
+!.env.example
+
+# production
+dist
+lib
+*.tsbuildinfo
+
